@@ -42,6 +42,13 @@ def login():
     else:
         return "Login failed. Invalid username or password."
 
+@app.route('/profile')
+def profile():
+    if 'user_id' not in session:
+        return redirect(url_for('home'))
+
+    user = User.query.get(session['user_id'])
+    return render_template('Users/profile.html', user=user)
 
 if __name__ == '__main__':
     app.run(debug=True)

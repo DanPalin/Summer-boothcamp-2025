@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        .user-box {
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 30px 20px 20px 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .user-box img {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+        }
+
+        .user-box p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-box">
+        <img src="{{ url_for('static', filename='uploads/' + user.image) }}" alt="User Image">
+        <p><strong></strong> {{ user.name }}</p>
+        <p><strong></strong> {{ user.age() }}</p>
+        <p><strong></strong> {{ user.address }}</p>
+    </div>
+</body>
+</html>
